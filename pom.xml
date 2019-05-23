@@ -202,19 +202,24 @@
     </pluginRepositories>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>oss</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
         <repository>
-            <id>oss</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>releases</id>
+            <name>nexus-zwx-release</name>
+            <url>http://192.168.3.231:8081/repository/maven-releases/</url>
         </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>nexus-zwx-snapshot</name>
+            <url>http://192.168.3.231:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <profiles>
         <profile>
             <id>release</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <plugins>
                     <!-- Source -->
@@ -246,7 +251,7 @@
                         </executions>
                     </plugin>
                     <!-- GPG -->
-                    <plugin>
+                   <!-- <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>1.6</version>
@@ -258,19 +263,20 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
+                    </plugin>-->
                 </plugins>
             </build>
             <distributionManagement>
-                <!-- 这里的id oss需要和setting.xml里面server节点配置的id一致-->
-                <snapshotRepository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
                 <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <id>releases</id>
+                    <name>nexus-zwx-release</name>
+                    <url>http://192.168.3.231:8081/repository/maven-releases/</url>
                 </repository>
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <name>nexus-zwx-snapshot</name>
+                    <url>http://192.168.3.231:8081/repository/maven-snapshots/</url>
+                </snapshotRepository>
             </distributionManagement>
         </profile>
     </profiles>

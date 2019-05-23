@@ -20,9 +20,13 @@ import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
-import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.FileOutConfig;
+import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
-import com.baomidou.mybatisplus.generator.config.converts.PostgreSqlTypeConvert;
+import com.baomidou.mybatisplus.generator.config.converts.OracleTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import lombok.Data;
@@ -36,7 +40,11 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * 代码生成器配置类
@@ -126,8 +134,8 @@ public class BladeCodeGenerator {
 			dsc.setDbType(DbType.MYSQL);
 			dsc.setTypeConvert(new MySqlTypeConvert());
 		} else {
-			dsc.setDbType(DbType.POSTGRE_SQL);
-			dsc.setTypeConvert(new PostgreSqlTypeConvert());
+			dsc.setDbType(DbType.ORACLE);
+			dsc.setTypeConvert(new OracleTypeConvert());
 		}
 		dsc.setUrl(props.getProperty("spring.datasource.url"));
 		dsc.setDriverName(driverName);

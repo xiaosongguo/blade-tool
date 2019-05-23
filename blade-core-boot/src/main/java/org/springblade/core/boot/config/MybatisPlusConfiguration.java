@@ -15,6 +15,7 @@
  */
 package org.springblade.core.boot.config;
 
+import com.baomidou.mybatisplus.extension.incrementer.OracleKeyGenerator;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
@@ -54,6 +55,15 @@ public class MybatisPlusConfiguration {
 	@Profile({AppConstant.DEV_CODE, AppConstant.TEST_CODE})
 	public PerformanceInterceptor performanceInterceptor() {
 		return new PerformanceInterceptor();
+	}
+
+	/**
+	 * Sequence主键自增
+	 * @return
+	 */
+	@Bean
+	public OracleKeyGenerator oracleKeyGenerator(){
+		return new OracleKeyGenerator();
 	}
 
 }

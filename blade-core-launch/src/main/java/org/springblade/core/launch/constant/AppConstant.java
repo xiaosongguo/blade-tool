@@ -74,6 +74,11 @@ public interface AppConstant {
 	String APPLICATION_TEST_NAME = APPLICATION_NAME_PREFIX + "test";
 
 	/**
+	 * 资源录入模块名称
+	 */
+	String APPLICATION_RESOURCE_NAME = APPLICATION_NAME_PREFIX + "resource";
+
+	/**
 	 * 开发环境
 	 */
 	String DEV_CODE = "dev";
