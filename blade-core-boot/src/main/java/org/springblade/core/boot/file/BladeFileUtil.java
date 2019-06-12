@@ -29,7 +29,7 @@ import java.util.*;
 public class BladeFileUtil {
 
 	/**
-	 * 定义允许的文件扩展名
+	 * 定义允许上传的文件扩展名
 	 */
 	private static HashMap<String, String> extMap = new HashMap<String, String>();
 	private static String IS_DIR = "is_dir";
@@ -60,7 +60,7 @@ public class BladeFileUtil {
 	}
 
 	/**
-	 * 测试文件后缀 只让指定后缀的文件，像jsp,war,sh等危险的后缀禁止
+	 * 测试文件后缀 只让指定后缀的文件上传，像jsp,war,sh等危险的后缀禁止
 	 *
 	 * @param dir      目录
 	 * @param fileName 文件名
