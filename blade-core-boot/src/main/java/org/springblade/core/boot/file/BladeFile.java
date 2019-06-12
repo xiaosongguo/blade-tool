@@ -87,8 +87,8 @@ public class BladeFile {
 	/**
 	 * 图片上传
 	 */
-	public void transfer() {
-		transfer(SystemConstant.me().isCompress());
+	public boolean transfer() {
+		return transfer(SystemConstant.me().isCompress());
 	}
 
 	/**
@@ -96,9 +96,9 @@ public class BladeFile {
 	 *
 	 * @param compress 是否压缩
 	 */
-	public void transfer(boolean compress) {
+	public boolean transfer(boolean compress) {
 		IFileProxy fileFactory = FileProxyManager.me().getDefaultFileProxyFactory();
-		this.transfer(fileFactory, compress);
+		return this.transfer(fileFactory, compress);
 	}
 
 	/**
@@ -107,7 +107,8 @@ public class BladeFile {
 	 * @param fileFactory 文件上传工厂类
 	 * @param compress    是否压缩
 	 */
-	public void transfer(IFileProxy fileFactory, boolean compress) {
+	public boolean transfer(IFileProxy fileFactory, boolean compress) {
+		boolean isSucc = true ;
 		try {
 			File file = new File(uploadPath);
 
@@ -130,8 +131,10 @@ public class BladeFile {
 			}
 
 		} catch (IllegalStateException | IOException e) {
+			isSucc = false;
 			e.printStackTrace();
 		}
+		return isSucc;
 	}
 
 	public MultipartFile getFile() {
