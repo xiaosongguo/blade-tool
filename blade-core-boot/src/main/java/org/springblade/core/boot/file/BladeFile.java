@@ -87,7 +87,7 @@ public class BladeFile {
 	/**
 	 * 图片上传
 	 */
-	public void transfer() {
+	public void transfer() throws  IllegalStateException , IOException {
 		transfer(SystemConstant.me().isCompress());
 	}
 
@@ -96,7 +96,7 @@ public class BladeFile {
 	 *
 	 * @param compress 是否压缩
 	 */
-	public void transfer(boolean compress) {
+	public void transfer(boolean compress) throws  IllegalStateException , IOException {
 		IFileProxy fileFactory = FileProxyManager.me().getDefaultFileProxyFactory();
 		this.transfer(fileFactory, compress);
 	}
@@ -107,8 +107,8 @@ public class BladeFile {
 	 * @param fileFactory 文件上传工厂类
 	 * @param compress    是否压缩
 	 */
-	public void transfer(IFileProxy fileFactory, boolean compress) {
-		try {
+	public void transfer(IFileProxy fileFactory, boolean compress) throws  IllegalStateException , IOException  {
+//		try {
 			File file = new File(uploadPath);
 
 			if (null != fileFactory) {
@@ -129,9 +129,9 @@ public class BladeFile {
 				fileFactory.compress(this.uploadPath);
 			}
 
-		} catch (IllegalStateException | IOException e) {
-			e.printStackTrace();
-		}
+//		} catch (IllegalStateException | IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	public MultipartFile getFile() {
