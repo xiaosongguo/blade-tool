@@ -16,11 +16,15 @@
 package org.springblade.core.tool.jackson;
 
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.BeanDescription;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializationConfig;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.BeanPropertyWriter;
 import com.fasterxml.jackson.databind.ser.BeanSerializerModifier;
-import org.springblade.core.tool.utils.StringUtil;
 import org.springblade.core.tool.utils.StringPool;
+import org.springblade.core.tool.utils.StringUtil;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -58,7 +62,7 @@ public class BladeBeanSerializerModifier extends BeanSerializerModifier {
             JavaType type = writer.getType();
             Class<?> clazz = type.getRawClass();
             if (type.isTypeOrSubTypeOf(Number.class)) {
-                writer.assignNullSerializer(NullJsonSerializers.NUMBER_JSON_SERIALIZER);
+//                writer.assignNullSerializer(NullJsonSerializers.NUMBER_JSON_SERIALIZER);
             }else if (type.isTypeOrSubTypeOf(Boolean.class)) {
                 writer.assignNullSerializer(NullJsonSerializers.BOOLEAN_JSON_SERIALIZER);
             } else if (type.isTypeOrSubTypeOf(Character.class)) {
