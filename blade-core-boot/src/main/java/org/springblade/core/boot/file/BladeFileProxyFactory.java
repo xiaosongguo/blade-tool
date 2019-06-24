@@ -16,14 +16,12 @@
 package org.springblade.core.boot.file;
 
 import org.springblade.core.tool.constant.SystemConstant;
-import org.springblade.core.tool.utils.DateUtil;
 import org.springblade.core.tool.utils.ImageUtil;
 import org.springblade.core.tool.utils.StringPool;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.util.Date;
 
 /**
  * 文件代理类
@@ -47,12 +45,14 @@ public class BladeFileProxyFactory implements IFileProxy {
 		StringBuilder uploadPath = new StringBuilder()
 			.append(getFileDir(dir, SystemConstant.me().getUploadRealPath()))
 			.append(time)
-			.append(getFileExt(f.getName()));
+			.append(File.separator)
+			.append(f.getName());
 
 		StringBuilder virtualPath = new StringBuilder()
 			.append(getFileDir(dir, SystemConstant.me().getUploadCtxPath()))
 			.append(time)
-			.append(getFileExt(f.getName()));
+			.append(File.separator)
+			.append(f.getName());
 
 		return new String[]{BladeFileUtil.formatUrl(uploadPath.toString()), BladeFileUtil.formatUrl(virtualPath.toString())};
 	}
@@ -81,7 +81,7 @@ public class BladeFileProxyFactory implements IFileProxy {
 	public static String getFileDir(String dir, String saveDir) {
 		StringBuilder newFileDir = new StringBuilder();
 		newFileDir.append(saveDir)
-			.append(File.separator).append(dir).append(File.separator).append(DateUtil.format(new Date(), "yyyyMMdd"))
+			.append(File.separator).append(dir)
 			.append(File.separator);
 		return newFileDir.toString();
 	}

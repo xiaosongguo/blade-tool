@@ -96,7 +96,7 @@ public class SystemConstant {
 	}
 
 	public String getUploadCtxPath() {
-		return contextPath + uploadPath;
+		return uploadPath;
 	}
 
 }
