@@ -34,4 +34,28 @@ public class RoleConstant {
 
 	public static final String HAS_ROLE_TEST = "hasRole('" + TEST + "')";
 
+	public static final String DEVELOPER = "developer";
+
+	public static final String HAS_ROLE_DEVELOPER = "hasRole('" + DEVELOPER + "')";
+
+	public static final String FINANCE = "finance";
+
+	public static final String HAS_ROLE_FINANCE = "hasRole('" + FINANCE + "')";
+
+	public static final String OPERATION = "operation";
+
+	public static final String HAS_ROLE_OPERATION = "hasRole('" + OPERATION + "')";
+
+	public static final String CUSTOMERSERVICE = "customerService";
+
+	public static final String HAS_ROLE_CUSTOMERSERVICE = "hasRole('" + CUSTOMERSERVICE + "')";
+
+	public static final String SUPPLIER = "supplier";
+
+	public static final String HAS_ROLE_SUPPLIER = "hasRole('" + SUPPLIER + "')";
+
+	public static final String TOURIST = "tourist";
+
+	public static final String HAS_ROLE_TOURIST = "hasRole('" + TOURIST + "')";
+
 }

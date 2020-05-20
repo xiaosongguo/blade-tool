@@ -20,12 +20,14 @@ import org.springblade.core.tool.constant.RoleConstant;
 import org.springblade.core.tool.utils.CollectionUtil;
 import org.springblade.core.tool.utils.Func;
 import org.springblade.core.tool.utils.StringUtil;
+import org.springframework.stereotype.Component;
 
 /**
  * 权限判断
  *
  * @author Chill
  */
+@Component
 public class AuthFun {
 
 	/**
@@ -44,6 +46,14 @@ public class AuthFun {
 	 */
 	public boolean denyAll() {
 		return hasRole(RoleConstant.ADMIN);
+	}
+	/**
+	 * 只有超管角色才可访问
+	 *
+	 * @return {boolean}
+	 */
+	public boolean isSupplier() {
+		return hasRole(RoleConstant.SUPPLIER);
 	}
 
 	/**
