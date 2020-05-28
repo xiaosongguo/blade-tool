@@ -52,9 +52,11 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T extends BaseEntity> exte
 	public boolean save(T entity) {
 		BladeUser user = SecureUtil.getUser();
 		LocalDateTime now = LocalDateTime.now();
-		entity.setCreateUser(user.getUserId());
 		entity.setCreateTime(now);
-		entity.setUpdateUser(user.getUserId());
+		if (user != null) {
+			entity.setCreateUser(user.getUserId());
+			entity.setUpdateUser(user.getUserId());
+		}
 		entity.setUpdateTime(now);
 		entity.setStatus(BladeConstant.DB_STATUS_NORMAL);
 		entity.setIsDeleted(BladeConstant.DB_NOT_DELETED);
@@ -64,8 +66,10 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T extends BaseEntity> exte
 	@Override
 	public boolean updateById(T entity) {
 		BladeUser user = SecureUtil.getUser();
-		entity.setUpdateUser(user.getUserId());
-		entity.setUpdateTime(LocalDateTime.now());
+		if (user != null) {
+			entity.setUpdateUser(user.getUserId());
+			entity.setUpdateTime(LocalDateTime.now());
+		}
 		return super.updateById(entity);
 	}
 
