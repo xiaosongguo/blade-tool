@@ -58,4 +58,14 @@ public class RoleConstant {
 
 	public static final String HAS_ROLE_TOURIST = "hasRole('" + TOURIST + "')";
 
+	public static final String AGENTEXECUTIVE ="AgentExecutive";
+
+	public static final String HAS_ROLE_AGENTEXECUTIVE = "hasRole('" + AGENTEXECUTIVE + "')";
+
+	public static final String SUPPLIERMANAGEMENT = "supplierManagement";
+
+	public static final String HAS_ROLE_SUPPLIERMANAGEMENT="hasRole('"+SUPPLIERMANAGEMENT+"')";
+
+
+
 }
